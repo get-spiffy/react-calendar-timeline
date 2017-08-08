@@ -1033,8 +1033,7 @@ export default class ReactCalendarTimeline extends Component {
         resizeTime,
         fullUpdate,
         visibleTimeStart,
-        visibleTimeEnd,
-        groupId: _get(item, keys.itemGroupKey)
+        visibleTimeEnd
       })
 
       if (dimension) {
@@ -1046,7 +1045,8 @@ export default class ReactCalendarTimeline extends Component {
 
         memo.push({
           id: itemId,
-          dimensions: dimension
+          dimensions: dimension,
+          group: item.group
         })
       }
 
