@@ -212,7 +212,7 @@ export function stack (items, groupOrders, lineHeight, headerHeight, force) {
   groupedItems.forEach(function (group, index, array) {
     // calculate new, non-overlapping positions
     groupTops.push(totalHeight)
-
+    if(group.id === 0){
     var groupHeight = 0
     var verticalMargin = 0
     for (i = 0, iMax = group.length; i < iMax; i++) {
@@ -235,11 +235,12 @@ export function stack (items, groupOrders, lineHeight, headerHeight, force) {
                 // console.log('dont test', other.top !== null, other !== item, other.stack);
             }
           }
-
+            console.log('colliding item', collidingItem)
           if (collidingItem != null) {
               // There is a collision. Reposition the items above the colliding element
             item.dimensions.top = collidingItem.dimensions.top + lineHeight
             groupHeight = Math.max(groupHeight, item.dimensions.top + item.dimensions.height - totalHeight)
+            console.log('groupHeight.", groupHeight)
           }
         } while (collidingItem)
       }
@@ -247,6 +248,7 @@ export function stack (items, groupOrders, lineHeight, headerHeight, force) {
 
     groupHeights.push(Math.max(groupHeight + verticalMargin, lineHeight))
     totalHeight += Math.max(groupHeight + verticalMargin, lineHeight)
+  }
   })
   return {
     height: totalHeight,
