@@ -222,29 +222,32 @@ export function stack (items, groupOrders, lineHeight, headerHeight, force) {
       verticalMargin = (lineHeight - item.dimensions.height)
       console.log('verticalMargin', verticalMargin)
       if (item.dimensions.stack && item.dimensions.top === null) {
-        item.dimensions.top = totalHeight + verticalMargin
-        groupHeight = Math.max(groupHeight, lineHeight)
-        console.log('groupHeight', groupHeight)
-        do {
-          var collidingItem = null
-          for (var j = 0, jj = group.length; j < jj; j++) {
-            var other = group[j]
-            console.log('other', other)
-            if (other.dimensions.top !== null && other !== item && other.dimensions.stack && collision(item.dimensions, other.dimensions, lineHeight)) {
-              collidingItem = other
-              break
-            } else {
-                // console.log('dont test', other.top !== null, other !== item, other.stack);
+        if (item.id === 32393 || item.id === 9877) {
+          console.log('ITEMID', item.id)
+          item.dimensions.top = totalHeight + verticalMargin
+          groupHeight = Math.max(groupHeight, lineHeight)
+          console.log('groupHeight', groupHeight)
+          do {
+            var collidingItem = null
+            for (var j = 0, jj = group.length; j < jj; j++) {
+              var other = group[j]
+              console.log('other', other)
+              if (other.dimensions.top !== null && other !== item && other.dimensions.stack && collision(item.dimensions, other.dimensions, lineHeight)) {
+                collidingItem = other
+                break
+              } else {
+                  // console.log('dont test', other.top !== null, other !== item, other.stack);
+              }
             }
-          }
-          console.log('collidingItem', collidingItem)
-          if (collidingItem != null) {
-              // There is a collision. Reposition the items above the colliding element
-            item.dimensions.top = collidingItem.dimensions.top + lineHeight
-            groupHeight = Math.max(groupHeight, item.dimensions.top + item.dimensions.height - totalHeight)
-            console.log('groupHeight', groupHeight)
-          }
-        } while (collidingItem)
+            console.log('collidingItem', collidingItem)
+            if (collidingItem != null) {
+                // There is a collision. Reposition the items above the colliding element
+              item.dimensions.top = collidingItem.dimensions.top + lineHeight
+              groupHeight = Math.max(groupHeight, item.dimensions.top + item.dimensions.height - totalHeight)
+              console.log('groupHeight', groupHeight)
+            }
+          } while (collidingItem)
+        }
       }
     }
 
