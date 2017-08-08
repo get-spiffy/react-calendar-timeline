@@ -1033,7 +1033,8 @@ export default class ReactCalendarTimeline extends Component {
         resizeTime,
         fullUpdate,
         visibleTimeStart,
-        visibleTimeEnd
+        visibleTimeEnd,
+        groupId: _get(item, keys.itemGroupKey)
       })
 
       if (dimension) {
