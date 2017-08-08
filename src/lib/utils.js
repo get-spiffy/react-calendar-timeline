@@ -212,22 +212,24 @@ export function stack (items, groupOrders, lineHeight, headerHeight, force) {
   groupedItems.forEach(function (group, index, array) {
     // calculate new, non-overlapping positions
     groupTops.push(totalHeight)
-    if(group.id === 0){
+    console.log('GROUP')
+    console.log(group)
     var groupHeight = 0
     var verticalMargin = 0
     for (i = 0, iMax = group.length; i < iMax; i++) {
       var item = group[i]
-      console.log('GROUP')
-      console.log(group)
+      console.log('ITEM', item)
       verticalMargin = (lineHeight - item.dimensions.height)
-
+      console.log('verticalMargin', verticalMargin)
       if (item.dimensions.stack && item.dimensions.top === null) {
         item.dimensions.top = totalHeight + verticalMargin
         groupHeight = Math.max(groupHeight, lineHeight)
+        console.log('groupHeight', groupHeight)
         do {
           var collidingItem = null
           for (var j = 0, jj = group.length; j < jj; j++) {
             var other = group[j]
+            console.log('other', other)
             if (other.dimensions.top !== null && other !== item && other.dimensions.stack && collision(item.dimensions, other.dimensions, lineHeight)) {
               collidingItem = other
               break
@@ -235,12 +237,12 @@ export function stack (items, groupOrders, lineHeight, headerHeight, force) {
                 // console.log('dont test', other.top !== null, other !== item, other.stack);
             }
           }
-          console.log('colliding item', collidingItem)
+          console.log('collidingItem', collidingItem)
           if (collidingItem != null) {
               // There is a collision. Reposition the items above the colliding element
             item.dimensions.top = collidingItem.dimensions.top + lineHeight
             groupHeight = Math.max(groupHeight, item.dimensions.top + item.dimensions.height - totalHeight)
-            console.log(groupHeight)
+            console.log('groupHeight', groupHeight)
           }
         } while (collidingItem)
       }
@@ -248,7 +250,7 @@ export function stack (items, groupOrders, lineHeight, headerHeight, force) {
 
     groupHeights.push(Math.max(groupHeight + verticalMargin, lineHeight))
     totalHeight += Math.max(groupHeight + verticalMargin, lineHeight)
-  }
+    console.log('totalHeight', totalHeight)
   })
   return {
     height: totalHeight,
