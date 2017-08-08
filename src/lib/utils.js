@@ -235,12 +235,12 @@ export function stack (items, groupOrders, lineHeight, headerHeight, force) {
                 // console.log('dont test', other.top !== null, other !== item, other.stack);
             }
           }
-            console.log('colliding item', collidingItem)
+          console.log('colliding item', collidingItem)
           if (collidingItem != null) {
               // There is a collision. Reposition the items above the colliding element
             item.dimensions.top = collidingItem.dimensions.top + lineHeight
             groupHeight = Math.max(groupHeight, item.dimensions.top + item.dimensions.height - totalHeight)
-            console.log('groupHeight.", groupHeight)
+            console.log(groupHeight)
           }
         } while (collidingItem)
       }
