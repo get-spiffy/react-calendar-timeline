@@ -222,11 +222,11 @@ export function stack (items, groupOrders, lineHeight, headerHeight, force) {
       verticalMargin = (lineHeight - item.dimensions.height)
       console.log('verticalMargin', verticalMargin)
       if (item.dimensions.stack && item.dimensions.top === null) {
-        if (item.id === 32393 || item.id === 9877) {
+        item.dimensions.top = totalHeight + verticalMargin
+        groupHeight = Math.max(groupHeight, lineHeight)
+        console.log('groupHeight', groupHeight)
+        if (item.id === 32392 || item.id === 9877) {
           console.log('ITEMID', item.id)
-          item.dimensions.top = totalHeight + verticalMargin
-          groupHeight = Math.max(groupHeight, lineHeight)
-          console.log('groupHeight', groupHeight)
           do {
             var collidingItem = null
             for (var j = 0, jj = group.length; j < jj; j++) {
