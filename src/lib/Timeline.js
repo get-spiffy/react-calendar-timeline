@@ -225,7 +225,7 @@ export default class ReactCalendarTimeline extends Component {
     canSelect: true,
 
     stackItems: false,
-    stackGroups: null,
+    stackGroup: 22,
 
     traditionalZoom: false,
     showCursorLine: false,
@@ -1005,7 +1005,7 @@ export default class ReactCalendarTimeline extends Component {
       }
     }
 
-    const { keys, dragSnap, lineHeight, headerLabelGroupHeight, headerLabelHeight, stackItems, fullUpdate, itemHeightRatio, stackGroups } = this.props
+    const { keys, dragSnap, lineHeight, headerLabelGroupHeight, headerLabelHeight, stackItems, fullUpdate, itemHeightRatio, stackGroup } = this.props
     const { draggingItem, dragTime, resizingItem, resizingEdge, resizeTime, newGroupOrder } = this.state
     const zoom = visibleTimeEnd - visibleTimeStart
     const canvasTimeEnd = canvasTimeStart + zoom * 3
@@ -1062,7 +1062,7 @@ export default class ReactCalendarTimeline extends Component {
       groupOrders,
       lineHeight,
       headerHeight,
-      stackGroups
+      stackGroup
     )
 
     return {dimensionItems, height, groupHeights, groupTops}
