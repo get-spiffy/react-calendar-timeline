@@ -193,7 +193,8 @@ export function collision (a, b, lineHeight) {
   (a.top + a.height + verticalMargin - EPSILON) > b.top)
 }
 
-export function stack (items, groupOrders, lineHeight, headerHeight, force) {
+export function stack (items, groupOrders, lineHeight, headerHeight, force, stackGroups) {
+  console.log('stacked Group', stackGroups)
   var i, iMax
   var totalHeight = headerHeight
 
@@ -225,7 +226,7 @@ export function stack (items, groupOrders, lineHeight, headerHeight, force) {
         item.dimensions.top = totalHeight + verticalMargin
         groupHeight = Math.max(groupHeight, lineHeight)
         console.log('groupHeight', groupHeight)
-        if (item.group === 0) {
+        if (item.group === stackGroups) {
           console.log('ITEMID', item.id)
           do {
             var collidingItem = null
