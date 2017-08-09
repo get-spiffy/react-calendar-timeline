@@ -225,7 +225,7 @@ export function stack (items, groupOrders, lineHeight, headerHeight, force) {
         item.dimensions.top = totalHeight + verticalMargin
         groupHeight = Math.max(groupHeight, lineHeight)
         console.log('groupHeight', groupHeight)
-        if (item.id === 32392 || item.id === 9877) {
+        if (item.group === 0) {
           console.log('ITEMID', item.id)
           do {
             var collidingItem = null
