@@ -1064,6 +1064,7 @@ export default class ReactCalendarTimeline extends Component {
       groupOrders,
       lineHeight,
       headerHeight,
+      null,
       stackGroup
     )
 

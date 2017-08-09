@@ -195,6 +195,7 @@ export function collision (a, b, lineHeight) {
 
 export function stack (items, groupOrders, lineHeight, headerHeight, force, stackGroup) {
   console.log('stacked Group', stackGroup)
+  console.log('force', force)
   var i, iMax
   var totalHeight = headerHeight
 
