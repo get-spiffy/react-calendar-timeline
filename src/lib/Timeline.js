@@ -99,7 +99,7 @@ export default class ReactCalendarTimeline extends Component {
     canSelect: PropTypes.bool,
 
     stackItems: PropTypes.bool,
-    stackGroup: PropTypes.number,
+    stackGroup: PropTypes.array,
 
     traditionalZoom: PropTypes.bool,
     showCursorLine: PropTypes.bool,
@@ -225,7 +225,7 @@ export default class ReactCalendarTimeline extends Component {
     canSelect: true,
 
     stackItems: false,
-    stackGroup: 22,
+    stackGroup: [],
 
     traditionalZoom: false,
     showCursorLine: false,
