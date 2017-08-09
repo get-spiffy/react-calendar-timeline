@@ -327,6 +327,7 @@ export default class ReactCalendarTimeline extends Component {
     this.state.height = height
     this.state.groupHeights = groupHeights
     this.state.groupTops = groupTops
+    console.log('Group', this.props.stackGroup)
   }
 
   componentDidMount () {
