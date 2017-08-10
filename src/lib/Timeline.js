@@ -1045,12 +1045,15 @@ export default class ReactCalendarTimeline extends Component {
         dimension.stack = !item.isOverlay
         dimension.height = lineHeight * itemHeightRatio
         dimension.isDragging = isDragging
-
+        var rslId = null
+        if (item.address) {
+          rslId = item.address.client_host_locations_id
+        }
         memo.push({
           id: itemId,
           dimensions: dimension,
           group: item.group,
-          rsl: item.address.client_host_locations_id
+          rsl: rslId
         })
       }
 
