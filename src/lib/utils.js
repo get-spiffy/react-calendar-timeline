@@ -229,7 +229,7 @@ export function stack (items, groupOrders, lineHeight, headerHeight, force, stac
         console.log('groupHeight', groupHeight)
         //if (stackGroup.includes(item.group)) {
         console.log('clicked item.rsl', item.rsl)
-        console.log('clicked stackedGroup', stackedGroup)
+        console.log('clicked stackGroup', stackGroup)
         if (item.rsl === null || stackGroup.includes(item.rsl)) {
           console.log('ITEMID', item.id)
           do {
