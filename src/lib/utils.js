@@ -228,7 +228,9 @@ export function stack (items, groupOrders, lineHeight, headerHeight, force, stac
         groupHeight = Math.max(groupHeight, lineHeight)
         console.log('groupHeight', groupHeight)
         //if (stackGroup.includes(item.group)) {
-        if(item.id === 32398) {
+        console.log('clicked item.rsl', item.rsl)
+        console.log('clicked stackedGroup', stackedGroup)
+        if (item.rsl === null || stackGroup.includes(item.rsl)) {
           console.log('ITEMID', item.id)
           do {
             var collidingItem = null
