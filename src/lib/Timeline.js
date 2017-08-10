@@ -1049,7 +1049,8 @@ export default class ReactCalendarTimeline extends Component {
         memo.push({
           id: itemId,
           dimensions: dimension,
-          group: item.group
+          group: item.group,
+          rsl: item.address.client_host_locations_id
         })
       }
 
