@@ -230,7 +230,7 @@ export function stack (items, groupOrders, lineHeight, headerHeight, force, stac
         //if (stackGroup.includes(item.group)) {
         console.log('clicked item.rsl', item.rsl)
         console.log('clicked stackGroup', stackGroup)
-        if (item.rsl === null || stackGroup.includes(item.rsl)) {
+        if (item.rsl === null) {
           console.log('ITEMID', item.id)
           do {
             var collidingItem = null
