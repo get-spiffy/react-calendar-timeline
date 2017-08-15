@@ -452,7 +452,7 @@ export default class Item extends Component {
       width: `${dimensions.width}px`,
       height: `${dimensions.height}px`,
       lineHeight: `${dimensions.height}px`,
-      color: 'green'
+      background: 'linear-gradient(to right, #F58E0C 41%, white 0%)'
     }
 
     return (
