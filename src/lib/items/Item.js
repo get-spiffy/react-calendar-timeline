@@ -433,6 +433,9 @@ export default class Item extends Component {
     const totalHours = (item.end_time - item.start_time) / 3600000
     const serviceTime = (item.work_end_at - item.start_time) / 3600000
     const coloredPercentage = serviceTime / totalHours * 100
+    console.log('background totalHours', totalHours)
+    console.log('background serviceTime', serviceTime)
+    console.log('background coloredPercentage', coloredPercentage)
     return 'linear-gradient(to right, #F58E0C' + coloredPercentage + '%, white 0%)'
   }
   render () {
@@ -451,6 +454,7 @@ export default class Item extends Component {
                        (dimensions.clippedLeft ? ' clipped-left' : '') +
                        (dimensions.clippedRight ? ' clipped-right' : '')
     const background = this.getGradientPercentage(this.props.item)
+    console.log('background', background)
     const style = {
       left: `${dimensions.left}px`,
       top: `${dimensions.top}px`,
