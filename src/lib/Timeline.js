@@ -327,7 +327,6 @@ export default class ReactCalendarTimeline extends Component {
     this.state.height = height
     this.state.groupHeights = groupHeights
     this.state.groupTops = groupTops
-    console.log('Group', this.props.stackGroup)
   }
 
   componentDidMount () {
@@ -735,7 +734,6 @@ export default class ReactCalendarTimeline extends Component {
   }
 
   dropItem = (item, dragTime, newGroupOrder) => {
-    console.log('ITEM DROPPED')
     this.setState({draggingItem: null, dragTime: null, dragGroupTitle: null})
     if (this.props.onItemMove) {
       this.props.onItemMove(item, dragTime, newGroupOrder)
@@ -1005,7 +1003,6 @@ export default class ReactCalendarTimeline extends Component {
         groupTops: []
       }
     }
-    console.log('Group in stackItems', this.props.stackGroup)
     const { keys, dragSnap, lineHeight, headerLabelGroupHeight, headerLabelHeight, stackItems, fullUpdate, itemHeightRatio, stackGroup } = this.props
     const { draggingItem, dragTime, resizingItem, resizingEdge, resizeTime, newGroupOrder } = this.state
     const zoom = visibleTimeEnd - visibleTimeStart
@@ -1061,8 +1058,6 @@ export default class ReactCalendarTimeline extends Component {
     }, [])
 
     const stackingMethod = stackItems ? stack : nostack
-    console.log('group before it is used props', this.props.stackGroup)
-    console.log('group as varialbe', stackGroup)
     const { height, groupHeights, groupTops } = stackingMethod(
       dimensionItems,
       groupOrders,
