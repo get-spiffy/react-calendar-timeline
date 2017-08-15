@@ -34,6 +34,14 @@ export default class Item extends Component {
     // onContextMenu: React.PropTypes.func,
     // itemRenderer: React.PropTypes.func
   }
+  static colorMap = {
+    'event': '#db8630',
+    'new': '#f6ec09',
+    'needs_attention': '#cd2b18',
+    'started': '#00a9e7',
+    'completed': '#7e7e7a',
+    'confirmed': '#13df36'
+  };
 
   static defaultProps = {
     selected: false
@@ -430,13 +438,15 @@ export default class Item extends Component {
     }
   }
   getGradientPercentage (item) {
+    const color = this.getColor(item.status)
     const totalHours = (item.end_time - item.start_time) / 3600000
     const serviceTime = (item.work_end_at - item.start_time) / 3600000
     const coloredPercentage = serviceTime / totalHours * 100
-    console.log('background totalHours', totalHours)
-    console.log('background serviceTime', serviceTime)
-    console.log('background coloredPercentage', coloredPercentage)
-    return 'linear-gradient(to right, #F58E0C ' + coloredPercentage + '%, white 0%)'
+    return 'linear-gradient(to right, ' + color + ' ' + coloredPercentage + '%, white 0%)'
+  }
+  getColor (status) {
+    console.log('background colormap status')
+    return this.colorMap[status]
   }
   render () {
     const dimensions = this.props.dimensions
