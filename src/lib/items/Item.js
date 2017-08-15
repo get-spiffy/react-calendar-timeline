@@ -436,7 +436,7 @@ export default class Item extends Component {
     console.log('background totalHours', totalHours)
     console.log('background serviceTime', serviceTime)
     console.log('background coloredPercentage', coloredPercentage)
-    return 'linear-gradient(to right, #F58E0C' + coloredPercentage + '%, white 0%)'
+    return 'linear-gradient(to right, #F58E0C ' + coloredPercentage + '%, white 0%)'
   }
   render () {
     const dimensions = this.props.dimensions
