@@ -429,7 +429,12 @@ export default class Item extends Component {
       return this.itemTitle
     }
   }
-
+  getGradientPercentage (item) {
+    const totalHours = (item.end_time - item.start_time) / 3600000
+    const serviceTime = (item.work_end_at - item.start_time) / 3600000
+    const coloredPercentage = serviceTime / totalHours * 100
+    return 'linear-gradient(to right, #F58E0C' + coloredPercentage + '%, white 0%)'
+  }
   render () {
     const dimensions = this.props.dimensions
     if (typeof this.props.order === 'undefined' || this.props.order === null) {
@@ -445,14 +450,15 @@ export default class Item extends Component {
                        (this.props.item.className ? ` ${this.props.item.className}` : '') +
                        (dimensions.clippedLeft ? ' clipped-left' : '') +
                        (dimensions.clippedRight ? ' clipped-right' : '')
-
+    const background = this.getGradientPercentage(this.props.item)
     const style = {
       left: `${dimensions.left}px`,
       top: `${dimensions.top}px`,
       width: `${dimensions.width}px`,
       height: `${dimensions.height}px`,
       lineHeight: `${dimensions.height}px`,
-      background: 'linear-gradient(to right, #F58E0C 41%, white 0%)'
+      background: background,
+      color: 'black'
     }
 
     return (
