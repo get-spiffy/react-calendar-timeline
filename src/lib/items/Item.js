@@ -63,8 +63,9 @@ export default class Item extends Component {
       'new': '#f6ec09',
       'needs_attention': '#cd2b18',
       'started': '#00a9e7',
-      'completed': '#7e7e7a',
-      'confirmed': '#13df36'
+      'completed': '#9f9fa0',
+      'confirmed': '#13df36',
+      'awaiting_payment': '#9f9fa0'
     }
   }
 
@@ -465,7 +466,7 @@ export default class Item extends Component {
                        (dimensions.clippedLeft ? ' clipped-left' : '') +
                        (dimensions.clippedRight ? ' clipped-right' : '')
     const background = this.getGradientPercentage(this.props.item)
-    console.log('background', background)
+    const border = this.props.item.status === 'awaiting_payment' ? 'red' : 'none'
     const style = {
       left: `${dimensions.left}px`,
       top: `${dimensions.top}px`,
@@ -474,6 +475,7 @@ export default class Item extends Component {
       lineHeight: `${dimensions.height}px`,
       background: background,
       color: 'black'
+      border-color: border
     }
 
     return (
