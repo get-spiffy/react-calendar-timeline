@@ -474,8 +474,7 @@ export default class Item extends Component {
       height: `${dimensions.height}px`,
       lineHeight: `${dimensions.height}px`,
       background: background,
-      color: 'black',
-      borderColor: border
+      color: 'black'
     }
 
     return (
