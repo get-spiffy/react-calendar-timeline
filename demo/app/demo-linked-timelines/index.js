@@ -39,12 +39,10 @@ export default class App extends Component {
   }
 
   handleTimeChangeFirst = (visibleTimeStart, visibleTimeEnd, updateScrollCanvas) => {
-    console.log('first', visibleTimeStart, visibleTimeEnd)
     this.setState({ visibleTimeStart, visibleTimeEnd })
   }
 
   handleTimeChangeSecond = (visibleTimeStart, visibleTimeEnd, updateScrollCanvas) => {
-    console.log('second', visibleTimeStart, visibleTimeEnd)
     this.setState({ visibleTimeStart, visibleTimeEnd })
   }
 

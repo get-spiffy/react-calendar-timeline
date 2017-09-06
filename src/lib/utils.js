@@ -212,8 +212,6 @@ export function stack (items, groupOrders, lineHeight, headerHeight, force, stac
   groupedItems.forEach(function (group, index, array) {
     // calculate new, non-overlapping positions
     groupTops.push(totalHeight)
-    console.log('GROUP')
-    console.log(group)
     var groupHeight = 0
     var verticalMargin = 0
     for (i = 0, iMax = group.length; i < iMax; i++) {

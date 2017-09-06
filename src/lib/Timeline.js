@@ -46,10 +46,10 @@ export const defaultHeaderLabelFormats = {
   monthLong: 'MMMM YYYY',
   dayShort: 'L',
   dayLong: 'dddd, LL',
-  hourShort: 'HH',
-  hourMedium: 'HH:00',
-  hourMediumLong: 'L, HH:00',
-  hourLong: 'dddd, LL, HH:00',
+  hourShort: 'h A',
+  hourMedium: 'h A',
+  hourMediumLong: 'L, h A',
+  hourLong: 'dddd, LL, h A',
   time: 'LLL'
 }
 
@@ -63,10 +63,10 @@ export const defaultSubHeaderLabelFormats = {
   dayMedium: 'dd D',
   dayMediumLong: 'ddd, Do',
   dayLong: 'dddd, Do',
-  hourShort: 'HH',
-  hourLong: 'HH:00',
-  minuteShort: 'mm',
-  minuteLong: 'HH:mm'
+  hourShort: 'h A',
+  hourLong: 'h A',
+  minuteLong: 'h:mm A',
+  minuteShort: 'mm'
 }
 
 export default class ReactCalendarTimeline extends Component {
