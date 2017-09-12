@@ -86,7 +86,7 @@ export default class ReactCalendarTimeline extends Component {
     headerLabelGroupHeight: PropTypes.number,
     headerLabelHeight: PropTypes.number,
     itemHeightRatio: PropTypes.number,
-
+    selectedDate: PropTypes.object,
     minZoom: PropTypes.number,
     maxZoom: PropTypes.number,
 
@@ -124,7 +124,7 @@ export default class ReactCalendarTimeline extends Component {
 
     itemRenderer: PropTypes.func,
     groupRenderer: PropTypes.func,
-
+    changeDate: PropTypes.func.isRequired,
     dayBackground: PropTypes.func,
 
     style: PropTypes.object,
@@ -953,7 +953,9 @@ export default class ReactCalendarTimeline extends Component {
               stickyOffset={this.props.stickyOffset}
               showPeriod={this.showPeriod}
               headerLabelFormats={this.props.headerLabelFormats}
-              subHeaderLabelFormats={this.props.subHeaderLabelFormats} />
+              subHeaderLabelFormats={this.props.subHeaderLabelFormats}
+              changeDate = {this.props.changeDate}
+              selectedDate = {this.props.selectedDate} />
     )
   }
 

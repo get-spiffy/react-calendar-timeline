@@ -9,6 +9,7 @@ export default class Header extends Component {
   static propTypes = {
     hasRightSidebar: PropTypes.bool.isRequired,
     showPeriod: PropTypes.func.isRequired,
+    changeDate: PropTypes.func.isRequired,
     canvasTimeStart: PropTypes.number.isRequired,
     canvasTimeEnd: PropTypes.number.isRequired,
     canvasWidth: PropTypes.number.isRequired,
@@ -22,7 +23,8 @@ export default class Header extends Component {
     subHeaderLabelFormats: PropTypes.object.isRequired,
     fixedHeader: PropTypes.oneOf(['fixed', 'sticky', 'none']),
     stickyOffset: PropTypes.number.isRequired,
-    headerPosition: PropTypes.oneOf(['top', 'bottom', 'fixed'])
+    headerPosition: PropTypes.oneOf(['top', 'bottom', 'fixed']),
+    selectedDate: PropTypes.object
   }
 
   static defaultProps = {
@@ -73,7 +75,9 @@ export default class Header extends Component {
       return time.get(unit)
     }
   }
-
+  handleChange (date) {
+    this.props.changeDate(date)
+  }
   periodClick = (e) => {
     console.log("do this instead of show Period")
     // const {time, unit} = e.target.dataset
@@ -117,6 +121,7 @@ export default class Header extends Component {
   toggleCalendar = (e) => {
     e && e.preventDefault()
     this.setState({isOpen: !this.state.isOpen})
+    this.props.showPeriod(moment(time - 0), unit)
   }
   render () {
     let timeLabels = []
@@ -218,7 +223,7 @@ export default class Header extends Component {
       {
         this.state.isOpen && (
         <DatePicker
-            selected={this.state.startDate}
+            selected={this.props.selectedDate}
             onChange={this.handleChange}
             withPortal
             inline />
