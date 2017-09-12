@@ -73,10 +73,11 @@ export default class Header extends Component {
   }
 
   periodClick = (e) => {
-    const {time, unit} = e.target.dataset
-    if (time && unit) {
-      this.props.showPeriod(moment(time - 0), unit)
-    }
+    console.log("do this instead of show Period")
+    // const {time, unit} = e.target.dataset
+    // if (time && unit) {
+    //   this.props.showPeriod(moment(time - 0), unit)
+    // }
   }
 
   touchStart = (e) => {
