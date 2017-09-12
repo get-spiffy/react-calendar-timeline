@@ -121,7 +121,6 @@ export default class Header extends Component {
   toggleCalendar = (e) => {
     e && e.preventDefault()
     this.setState({isOpen: !this.state.isOpen})
-    this.props.showPeriod(moment(time - 0), unit)
   }
   render () {
     let timeLabels = []
