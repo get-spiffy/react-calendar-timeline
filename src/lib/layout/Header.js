@@ -75,7 +75,8 @@ export default class Header extends Component {
       return time.get(unit)
     }
   }
-  handleChange (date) {
+  handleChange = (date) => {
+    console.log('props', this.props)
     this.props.changeDate(date)
   }
   periodClick = (e) => {
