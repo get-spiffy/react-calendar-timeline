@@ -130,6 +130,7 @@ export default class Header extends Component {
       const nextUnit = getNextUnit(minUnit)
 
       iterateTimes(visibleTimeStart, visibleTimeEnd, nextUnit, timeSteps, (time, nextTime) => {
+        console.log("click on date 5")
         const startTime = Math.max(visibleTimeStart, time.valueOf())
         const endTime = Math.min(visibleTimeEnd, nextTime.valueOf())
         const left = Math.round((startTime.valueOf() - canvasTimeStart) * ratio, -2)
