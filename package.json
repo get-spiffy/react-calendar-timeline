@@ -51,7 +51,8 @@
   "dependencies": {
     "element-resize-detector": "^1.1.12",
     "interact.js": "^1.2.6",
-    "react-pure-render": "^1.0.2"
+    "react-pure-render": "^1.0.2",
+    "react-datepicker": "^0.54.0"
   },
   "peerDependencies": {
     "interact.js": "*",

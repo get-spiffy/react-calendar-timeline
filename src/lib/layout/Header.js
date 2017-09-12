@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import moment from 'moment'
-
 import { iterateTimes, getNextUnit } from '../utils.js'
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker-cssmodules.css"
 
 export default class Header extends Component {
   static propTypes = {
@@ -34,7 +35,8 @@ export default class Header extends Component {
     super(props)
     this.state = {
       touchTarget: null,
-      touchActive: false
+      touchActive: false,
+      isOpen: false
     }
   }
 
@@ -112,7 +114,10 @@ export default class Header extends Component {
       touchActive: false
     })
   }
-
+  toggleCalendar = (e) => {
+    e && e.preventDefault()
+    this.setState({isOpen: !this.state.isOpen})
+  }
   render () {
     let timeLabels = []
     const {
@@ -209,7 +214,16 @@ export default class Header extends Component {
     }
 
     return (
-      <div ref='header' key='header' className='rct-header' onTouchStart={this.touchStart} onTouchEnd={this.touchEnd} onClick={this.periodClick} style={headerStyle}>
+      <div ref='header' key='header' className='rct-header' onTouchStart={this.touchStart} onTouchEnd={this.touchEnd} onClick={this.toggleCalendar} style={headerStyle}>
+      {
+        this.state.isOpen && (
+        <DatePicker
+            selected={this.state.startDate}
+            onChange={this.handleChange}
+            withPortal
+            inline />
+            )
+      }
         {timeLabels}
       </div>
     )
