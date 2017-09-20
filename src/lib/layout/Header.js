@@ -9,7 +9,7 @@ export default class Header extends Component {
   static propTypes = {
     hasRightSidebar: PropTypes.bool.isRequired,
     showPeriod: PropTypes.func.isRequired,
-    changeDate: PropTypes.func
+    changeDate: PropTypes.func,
     canvasTimeStart: PropTypes.number.isRequired,
     canvasTimeEnd: PropTypes.number.isRequired,
     canvasWidth: PropTypes.number.isRequired,
