@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import moment from 'moment'
+// import moment from 'moment'
 import { iterateTimes, getNextUnit } from '../utils.js'
 import DatePicker from 'react-datepicker'
-import "react-datepicker/dist/react-datepicker-cssmodules.css"
+import 'react-datepicker/dist/react-datepicker-cssmodules.css'
 
 export default class Header extends Component {
   static propTypes = {
     hasRightSidebar: PropTypes.bool.isRequired,
     showPeriod: PropTypes.func.isRequired,
-    changeDate: PropTypes.func.isRequired,
+    changeDate: PropTypes.func
     canvasTimeStart: PropTypes.number.isRequired,
     canvasTimeEnd: PropTypes.number.isRequired,
     canvasWidth: PropTypes.number.isRequired,
@@ -79,13 +79,13 @@ export default class Header extends Component {
     console.log('props', this.props)
     this.props.changeDate(date)
   }
-  periodClick = (e) => {
-    console.log("do this instead of show Period")
-    // const {time, unit} = e.target.dataset
-    // if (time && unit) {
-    //   this.props.showPeriod(moment(time - 0), unit)
-    // }
-  }
+
+  // periodClick = (e) => {
+  //   // const {time, unit} = e.target.dataset
+  //   // if (time && unit) {
+  //   //   this.props.showPeriod(moment(time - 0), unit)
+  //   // }
+  // }
 
   touchStart = (e) => {
     if (e.touches.length === 1) {
@@ -141,7 +141,6 @@ export default class Header extends Component {
       const nextUnit = getNextUnit(minUnit)
 
       iterateTimes(visibleTimeStart, visibleTimeEnd, nextUnit, timeSteps, (time, nextTime) => {
-        console.log("click on date 5")
         const startTime = Math.max(visibleTimeStart, time.valueOf())
         const endTime = Math.min(visibleTimeEnd, nextTime.valueOf())
         const left = Math.round((startTime.valueOf() - canvasTimeStart) * ratio, -2)

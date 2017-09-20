@@ -921,17 +921,17 @@ export default class ReactCalendarTimeline extends Component {
     )
   }
 
-  infoLabel () {
-    let label = null
-
-    if (this.state.dragTime) {
-      label = `${moment(this.state.dragTime).format('LLL')}, ${this.state.dragGroupTitle}`
-    } else if (this.state.resizeTime) {
-      label = moment(this.state.resizeTime).format('LLL')
-    }
-
-    return label ? <InfoLabel label={label} /> : ''
-  }
+  // infoLabel () {
+  //   let label = null
+  //
+  //   if (this.state.dragTime) {
+  //     label = `${moment(this.state.dragTime).format('LLL')}, ${this.state.dragGroupTitle}`
+  //   } else if (this.state.resizeTime) {
+  //     label = moment(this.state.resizeTime).format('LLL')
+  //   }
+  //
+  //   return label ? <InfoLabel label={label} /> : ''
+  // }
 
   header (canvasTimeStart, zoom, canvasTimeEnd, canvasWidth, minUnit, timeSteps, headerLabelGroupHeight, headerLabelHeight) {
     return (
@@ -1227,7 +1227,6 @@ export default class ReactCalendarTimeline extends Component {
               {mouseOverCanvas && showCursorLine
                 ? this.cursorLine(cursorTime, canvasTimeStart, zoom, canvasTimeEnd, canvasWidth, minUnit, height, headerHeight)
                 : null}
-              {this.infoLabel()}
               {this.header(
                 canvasTimeStart,
                 zoom,

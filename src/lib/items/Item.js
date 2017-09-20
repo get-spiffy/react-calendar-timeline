@@ -440,14 +440,12 @@ export default class Item extends Component {
   }
   getGradientPercentage (item) {
     const color = this.getColor(item.status)
-    console.log('background color', color)
     const totalHours = (item.end_time - item.start_time) / 3600000
     const serviceTime = (item.work_end_at - item.start_time) / 3600000
     const coloredPercentage = serviceTime / totalHours * 100
     return 'linear-gradient(to right, ' + color + ' ' + coloredPercentage + '%, white 0%)'
   }
   getColor (status) {
-    console.log('background colormap status', this.colorMap[status])
     return this.colorMap[status]
   }
   render () {
