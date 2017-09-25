@@ -141,7 +141,8 @@ export default class Items extends Component {
                                         onItemDoubleClick={this.props.onItemDoubleClick}
                                         onContextMenu={this.props.onItemContextMenu}
                                         onSelect={this.props.itemSelect}
-                                        itemRenderer={this.props.itemRenderer} />)}
+                                        itemRenderer={this.props.itemRenderer}
+                                        colorMap={this.props.colorMap} />)}
       </div>
     )
   }

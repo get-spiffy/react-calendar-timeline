@@ -58,15 +58,6 @@ export default class Item extends Component {
       resizeStart: null,
       resizeTime: null
     }
-    this.colorMap = {
-      'event': '#db8630',
-      'new': '#f6ec09',
-      'needs_attention': '#cd2b18',
-      'started': '#00a9e7',
-      'completed': '#9f9fa0',
-      'confirmed': '#13df36',
-      'awaiting_payment': '#9f9fa0'
-    }
   }
 
   shouldComponentUpdate (nextProps, nextState) {
@@ -446,7 +437,7 @@ export default class Item extends Component {
     return 'linear-gradient(to right, ' + color + ' ' + coloredPercentage + '%, white 0%)'
   }
   getColor (status) {
-    return this.colorMap[status]
+    return this.props.colorMap[status]
   }
   render () {
     const dimensions = this.props.dimensions

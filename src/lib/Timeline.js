@@ -917,7 +917,9 @@ export default class ReactCalendarTimeline extends Component {
              itemResizing={this.resizingItem}
              itemResized={this.resizedItem}
              itemRenderer={this.props.itemRenderer}
-             selected={this.props.selected} />
+             selected={this.props.selected}
+             colorMap={this.props.colorMap}
+             />
     )
   }
 
