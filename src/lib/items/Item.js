@@ -461,7 +461,7 @@ export default class Item extends Component {
       top: `${dimensions.top}px`,
       width: `${dimensions.width}px`,
       height: `${dimensions.height}px`,
-      lineHeight: `${dimensions.height}px`,
+      lineHeight: `${dimensions.height - 15}px`,
       background: background,
       color: 'black'
     }
@@ -480,9 +480,11 @@ export default class Item extends Component {
            onContextMenu={this.handleContextMenu}
            style={style}>
         {this.props.useResizeHandle ? <div ref='dragLeft' className='rct-drag-left'></div> : ''}
+        <div className='rct-item-overflow'>
           <div className='rct-item-content'>
             {this.renderContent()}
           </div>
+        </div>
         {this.props.useResizeHandle ? <div ref='dragRight' className='rct-drag-right'></div> : ''}
       </div>
     )
