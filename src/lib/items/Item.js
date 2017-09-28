@@ -457,7 +457,7 @@ export default class Item extends Component {
     const background = this.getGradientPercentage(this.props.item)
     const border = this.props.item.status === 'awaiting_payment' ? 'red' : 'none'
     const style = {
-      left: `${dimensions.left-15}px`,
+      left: `${dimensions.left}px`,
       top: `${dimensions.top}px`,
       width: `${dimensions.width}px`,
       height: `${dimensions.height}px`,
