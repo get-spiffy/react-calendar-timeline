@@ -76,7 +76,6 @@ export default class Header extends Component {
     }
   }
   handleChange = (date) => {
-    console.log('props', this.props)
     this.props.changeDate(date)
   }
 
