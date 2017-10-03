@@ -216,11 +216,9 @@ export default class Header extends Component {
         headerStyle.width = `${canvasWidth}px`
       }
     }
-//onClick={this.toggleCalendar}
+
     return (
-      <div>
-      <button onClick={this.toggleCalendar}>Open in Lib</button>
-      <div ref='header' key='header' className='rct-header' onTouchStart={this.touchStart} onTouchEnd={this.touchEnd} style={headerStyle}>
+      <div ref='header' key='header' className='rct-header' onTouchStart={this.touchStart} onTouchEnd={this.touchEnd} onClick={this.toggleCalendar} style={headerStyle}>
       {
         this.state.isOpen && (
         <DatePicker
@@ -231,7 +229,6 @@ export default class Header extends Component {
             )
       }
         {timeLabels}
-      </div>
       </div>
     )
   }
