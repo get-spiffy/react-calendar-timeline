@@ -78,7 +78,6 @@ export default class Header extends Component {
   handleChange = (date) => {
     this.props.changeDate(date)
     this.toggleCalendar()
-    this.setState({isOpen: !this.state.isOpen})
   }
 
   // periodClick = (e) => {
@@ -121,8 +120,8 @@ export default class Header extends Component {
     })
   }
   toggleCalendar = (e) => {
-    // e && e.preventDefault()
-    // this.setState({isOpen: !this.state.isOpen})
+    e && e.preventDefault()
+    this.setState({isOpen: !this.state.isOpen})
   }
   render () {
     let timeLabels = []
@@ -217,9 +216,10 @@ export default class Header extends Component {
         headerStyle.width = `${canvasWidth}px`
       }
     }
-
+//onClick={this.toggleCalendar}
     return (
-      <div ref='header' key='header' className='rct-header' onTouchStart={this.touchStart} onTouchEnd={this.touchEnd} onClick={this.toggleCalendar} style={headerStyle}>
+      <button onClick={this.toggleCalendar}>Open in Lib</button>
+      <div ref='header' key='header' className='rct-header' onTouchStart={this.touchStart} onTouchEnd={this.touchEnd} style={headerStyle}>
       {
         this.state.isOpen && (
         <DatePicker
