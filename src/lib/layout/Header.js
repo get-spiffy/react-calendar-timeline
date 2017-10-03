@@ -78,7 +78,7 @@ export default class Header extends Component {
   handleChange = (date) => {
     this.props.changeDate(date)
     this.toggleCalendar()
-    console.log("changing calendar")
+    this.setState({isOpen: !this.state.isOpen})
   }
 
   // periodClick = (e) => {
@@ -88,42 +88,41 @@ export default class Header extends Component {
   //   // }
   // }
 
-  // touchStart = (e) => {
-  //   if (e.touches.length === 1) {
-  //     this.setState({
-  //       touchTarget: e.target || e.touchTarget,
-  //       touchActive: true
-  //     })
-  //   }
-  // }
-  //
-  // touchEnd = (e) => {
-  //   if (!this.state.touchActive) {
-  //     return this.resetTouchState()
-  //   }
-  //
-  //   var changedTouches = e.changedTouches[0]
-  //   if (changedTouches) {
-  //     var elem = document.elementFromPoint(changedTouches.pageX, changedTouches.pageY)
-  //     if (elem !== this.state.touchTarget) {
-  //       return this.resetTouchState()
-  //     }
-  //   }
-  //
-  //   this.resetTouchState()
-  //   this.periodClick(e)
-  // }
-  //
-  // resetTouchState () {
-  //   this.setState({
-  //     touchTarget: null,
-  //     touchActive: false
-  //   })
-  // }
+  touchStart = (e) => {
+    if (e.touches.length === 1) {
+      this.setState({
+        touchTarget: e.target || e.touchTarget,
+        touchActive: true
+      })
+    }
+  }
+
+  touchEnd = (e) => {
+    if (!this.state.touchActive) {
+      return this.resetTouchState()
+    }
+
+    var changedTouches = e.changedTouches[0]
+    if (changedTouches) {
+      var elem = document.elementFromPoint(changedTouches.pageX, changedTouches.pageY)
+      if (elem !== this.state.touchTarget) {
+        return this.resetTouchState()
+      }
+    }
+
+    this.resetTouchState()
+    this.periodClick(e)
+  }
+
+  resetTouchState () {
+    this.setState({
+      touchTarget: null,
+      touchActive: false
+    })
+  }
   toggleCalendar = (e) => {
-    e && e.preventDefault()
-    this.setState({isOpen: !this.state.isOpen})
-    console.log("toggle calendar")
+    // e && e.preventDefault()
+    // this.setState({isOpen: !this.state.isOpen})
   }
   render () {
     let timeLabels = []
@@ -218,9 +217,9 @@ export default class Header extends Component {
         headerStyle.width = `${canvasWidth}px`
       }
     }
-//onTouchStart={this.touchStart} onTouchEnd={this.touchEnd}
+
     return (
-      <div ref='header' key='header' className='rct-header' onClick={this.toggleCalendar} style={headerStyle}>
+      <div ref='header' key='header' className='rct-header' onTouchStart={this.touchStart} onTouchEnd={this.touchEnd} onClick={this.toggleCalendar} style={headerStyle}>
       {
         this.state.isOpen && (
         <DatePicker

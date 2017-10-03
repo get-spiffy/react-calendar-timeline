@@ -734,7 +734,6 @@ export default class ReactCalendarTimeline extends Component {
   }
 
   dropItem = (item, dragTime, newGroupOrder) => {
-    console.log("dropItem")
     this.setState({draggingItem: null, dragTime: null, dragGroupTitle: null})
     if (this.props.onItemMove) {
       this.props.onItemMove(item, dragTime, newGroupOrder)
@@ -757,15 +756,13 @@ export default class ReactCalendarTimeline extends Component {
   }
 
   handleMouseDown = (e) => {
-     console.log("handle mouse down 2")
-    // const { topOffset } = this.state
-    // const { pageY } = e
-    // const { headerLabelGroupHeight, headerLabelHeight } = this.props
-    // const headerHeight = headerLabelGroupHeight + headerLabelHeight
-    //
-    // if (pageY - topOffset > headerHeight && e.button === 0) {
-    //   this.setState({isDragging: true, dragStartPosition: e.pageX, dragLastPosition: e.pageX})
-    // }
+    const { topOffset } = this.state
+    const { pageY } = e
+    const { headerLabelGroupHeight, headerLabelHeight } = this.props
+    const headerHeight = headerLabelGroupHeight + headerLabelHeight
+    if (pageY - topOffset > headerHeight && e.button === 0) {
+      this.setState({isDragging: true, dragStartPosition: e.pageX, dragLastPosition: e.pageX})
+    }
   }
 
   handleMouseMove = (e) => {
