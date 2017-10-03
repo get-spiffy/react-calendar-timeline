@@ -757,15 +757,15 @@ export default class ReactCalendarTimeline extends Component {
   }
 
   handleMouseDown = (e) => {
-    console.log("handle mouse down")
-    const { topOffset } = this.state
-    const { pageY } = e
-    const { headerLabelGroupHeight, headerLabelHeight } = this.props
-    const headerHeight = headerLabelGroupHeight + headerLabelHeight
-
-    if (pageY - topOffset > headerHeight && e.button === 0) {
-      this.setState({isDragging: true, dragStartPosition: e.pageX, dragLastPosition: e.pageX})
-    }
+     console.log("handle mouse down 2")
+    // const { topOffset } = this.state
+    // const { pageY } = e
+    // const { headerLabelGroupHeight, headerLabelHeight } = this.props
+    // const headerHeight = headerLabelGroupHeight + headerLabelHeight
+    //
+    // if (pageY - topOffset > headerHeight && e.button === 0) {
+    //   this.setState({isDragging: true, dragStartPosition: e.pageX, dragLastPosition: e.pageX})
+    // }
   }
 
   handleMouseMove = (e) => {
