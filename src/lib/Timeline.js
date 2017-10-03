@@ -634,7 +634,6 @@ export default class ReactCalendarTimeline extends Component {
   }
 
   changeZoom (scale, offset = 0.5) {
-    console.log("click on date 5")
     const { minZoom, maxZoom } = this.props
     const oldZoom = this.state.visibleTimeEnd - this.state.visibleTimeStart
     const newZoom = Math.min(Math.max(Math.round(oldZoom * scale), minZoom), maxZoom) // min 1 min, max 20 years
@@ -644,7 +643,6 @@ export default class ReactCalendarTimeline extends Component {
   }
 
   showPeriod = (from, unit) => {
-    console.log("click on date 4")
     let visibleTimeStart = from.valueOf()
     let visibleTimeEnd = moment(from).add(1, unit).valueOf()
     let zoom = visibleTimeEnd - visibleTimeStart
@@ -709,15 +707,12 @@ export default class ReactCalendarTimeline extends Component {
 
   scrollAreaClick = (e) => {
     // if not clicking on an item
-    console.log("click on date")
     if (!hasSomeParentTheClass(e.target, 'rct-item')) {
       if (this.state.selectedItem) {
         this.selectItem(null)
       } else if (this.props.onCanvasClick) {
-        console.log("click on date 2")
         const [row, time] = this.rowAndTimeFromEvent(e)
         if (row >= 0 && row < this.props.groups.length) {
-          console.log("click on date 3")
           const groupId = _get(this.props.groups[row], this.props.keys.groupIdKey)
           this.props.onCanvasClick(groupId, time, e)
         }

@@ -77,6 +77,7 @@ export default class Header extends Component {
   }
   handleChange = (date) => {
     this.props.changeDate(date)
+    this.toggleCalendar()
   }
 
   // periodClick = (e) => {
