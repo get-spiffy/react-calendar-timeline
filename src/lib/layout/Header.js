@@ -218,6 +218,7 @@ export default class Header extends Component {
     }
 //onClick={this.toggleCalendar}
     return (
+      <div>
       <button onClick={this.toggleCalendar}>Open in Lib</button>
       <div ref='header' key='header' className='rct-header' onTouchStart={this.touchStart} onTouchEnd={this.touchEnd} style={headerStyle}>
       {
@@ -230,6 +231,7 @@ export default class Header extends Component {
             )
       }
         {timeLabels}
+      </div>
       </div>
     )
   }
