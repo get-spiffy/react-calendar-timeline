@@ -218,7 +218,7 @@ export default class Header extends Component {
     }
 
     return (
-      <div ref='header' key='header' className='rct-header' onTouchStart={this.touchStart} onTouchEnd={this.touchEnd} onClick={this.toggleCalendar} style={headerStyle}>
+      <div ref='header' key='header' className='rct-header' onClick={this.toggleCalendar} style={headerStyle}>
       {
         this.state.isOpen && (
         <DatePicker

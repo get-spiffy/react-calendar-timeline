@@ -795,7 +795,6 @@ export default class ReactCalendarTimeline extends Component {
   }
 
   handleCanvasMouseLeave = (e) => {
-    console.log("handle canvas mouse leave")
     const { showCursorLine } = this.props
     if (showCursorLine) {
       this.setState({mouseOverCanvas: false})
