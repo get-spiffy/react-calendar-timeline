@@ -80,6 +80,14 @@ export default class Header extends Component {
     this.toggleCalendar()
   }
 
+  handleCalendarClickOutside = (e) => {
+    console.log('clicked outside')
+    e.preventDefault()
+    this.setState({
+      isOpen: true
+    })
+  }
+
   // periodClick = (e) => {
   //   // const {time, unit} = e.target.dataset
   //   // if (time && unit) {
@@ -218,12 +226,13 @@ export default class Header extends Component {
     }
 
     return (
-      <div ref='header' key='header' className='rct-header' onClick={this.toggleCalendar} style={headerStyle}>
+      <div ref='header' key='header' className='rct-header' onTouchStart={this.touchStart} onTouchEnd={this.touchEnd} onClick={this.toggleCalendar} style={headerStyle}>
       {
         this.state.isOpen && (
         <DatePicker
             selected={this.props.selectedDate}
             onChange={this.handleChange}
+            handleCalendarClickOutside={this.handleCalendarClickOutside}
             withPortal
             inline />
             )
