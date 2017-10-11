@@ -232,7 +232,9 @@ export default class Header extends Component {
         <DatePicker
             selected={this.props.selectedDate}
             onChange={this.handleChange}
-             />
+            shouldCloseOnSelect={false}
+            withPortal
+            inline />
             )
       }
         {timeLabels}
