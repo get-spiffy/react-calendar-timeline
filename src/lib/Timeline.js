@@ -1205,9 +1205,8 @@ export default class ReactCalendarTimeline extends Component {
                style={scrollComponentStyle}
                onScroll={this.onScroll}
                onWheel={this.onWheel}
-               onMouseDown={this.handleMouseDown}
                onMouseMove={this.handleMouseMove}
-               onMouseUp={this.handleMouseUp}
+
           >
             <div ref='canvasComponent'
                  className='rct-canvas'
