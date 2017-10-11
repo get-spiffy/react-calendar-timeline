@@ -773,6 +773,7 @@ export default class ReactCalendarTimeline extends Component {
   }
 
   handleMouseUp = (e) => {
+    console.log("mouse up")
     const { dragStartPosition } = this.state
 
     if (Math.abs(dragStartPosition - e.pageX) <= this.props.clickTolerance) {
