@@ -1215,7 +1215,6 @@ export default class ReactCalendarTimeline extends Component {
                  onDoubleClick={ this.handleDoubleClick }
                  onMouseEnter={ this.handleCanvasMouseEnter }
                  onMouseLeave={ this.handleCanvasMouseLeave }
-                 onMouseMove={ this.handleCanvasMouseMove }
                  onContextMenu={ this.handleCanvasContextMenu }
             >
               {this.items(canvasTimeStart, zoom, canvasTimeEnd, canvasWidth, minUnit, dimensionItems, groupHeights, groupTops)}
