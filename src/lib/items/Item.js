@@ -416,10 +416,10 @@ export default class Item extends Component {
   };
 
   actualClick (e, clickType) {
-    console.log("target", e.target.nodeName)
-    if (this.props.canSelect && this.props.onSelect) {
-      this.props.onSelect(this.itemId, clickType, e)
-    }
+    if(!(e.target.nodeName == "path") && !(e.target.nodeName == "svg") && !(e.target.nodeName == "BUTTON")
+      if (this.props.canSelect && this.props.onSelect) {
+        this.props.onSelect(this.itemId, clickType, e)
+      }
   }
 
   renderContent () {
