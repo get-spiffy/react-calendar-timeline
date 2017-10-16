@@ -773,7 +773,6 @@ export default class ReactCalendarTimeline extends Component {
   }
 
   handleMouseUp = (e) => {
-    console.log("mouse up")
     const { dragStartPosition } = this.state
 
     if (Math.abs(dragStartPosition - e.pageX) <= this.props.clickTolerance) {
@@ -1206,8 +1205,9 @@ export default class ReactCalendarTimeline extends Component {
                style={scrollComponentStyle}
                onScroll={this.onScroll}
                onWheel={this.onWheel}
+               onMouseDown={this.handleMouseDown}
                onMouseMove={this.handleMouseMove}
-
+               onMouseUp={this.handleMouseUp}
           >
             <div ref='canvasComponent'
                  className='rct-canvas'
