@@ -417,7 +417,8 @@ export default class Item extends Component {
 
   actualClick (e, clickType) {
     console.log("Target", e.target.tagName)
-    if(!(e.target.tagName == "svg") &&!(e.target.tagName == "path") && !(e.target.tagName == "BUTTON")){
+    if (!(e.target.tagName == "svg") &&!(e.target.tagName == "path") && !(e.target.tagName == "BUTTON")) {
+      console.log("in if statement target")
       if (this.props.canSelect && this.props.onSelect) {
         this.props.onSelect(this.itemId, clickType, e)
       }
