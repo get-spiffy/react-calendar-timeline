@@ -756,13 +756,13 @@ export default class ReactCalendarTimeline extends Component {
   }
 
   handleMouseDown = (e) => {
-    const { topOffset } = this.state
-    const { pageY } = e
-    const { headerLabelGroupHeight, headerLabelHeight } = this.props
-    const headerHeight = headerLabelGroupHeight + headerLabelHeight
-    if (pageY - topOffset > headerHeight && e.button === 0) {
-      this.setState({isDragging: true, dragStartPosition: e.pageX, dragLastPosition: e.pageX})
-    }
+    // const { topOffset } = this.state
+    // const { pageY } = e
+    // const { headerLabelGroupHeight, headerLabelHeight } = this.props
+    // const headerHeight = headerLabelGroupHeight + headerLabelHeight
+    // if (pageY - topOffset > headerHeight && e.button === 0) {
+    //   this.setState({isDragging: true, dragStartPosition: e.pageX, dragLastPosition: e.pageX})
+    // }
   }
 
   handleMouseMove = (e) => {
@@ -806,27 +806,27 @@ export default class ReactCalendarTimeline extends Component {
   }
 
   handleCanvasMouseMove = (e) => {
-    // const { showCursorLine } = this.props
-    // const { canvasTimeStart, width, visibleTimeStart, visibleTimeEnd, cursorTime } = this.state
-    // const zoom = visibleTimeEnd - visibleTimeStart
-    // const canvasTimeEnd = canvasTimeStart + zoom * 3
-    // const canvasWidth = width * 3
-    // const { pageX } = e
-    // const ratio = (canvasTimeEnd - canvasTimeStart) / canvasWidth
-    // const boundingRect = this.refs.scrollComponent.getBoundingClientRect()
-    // let timePosition = visibleTimeStart + ratio * (pageX - boundingRect.left)
-    //
-    // if (this.props.dragSnap) {
-    //   timePosition = Math.round(timePosition / this.props.dragSnap) * this.props.dragSnap
-    // }
-    //
-    // if (this.props.onCanvasMouseMove) {
-    //   this.props.onCanvasMouseMove(e)
-    // }
-    //
-    // if (cursorTime !== timePosition && showCursorLine) {
-    //   this.setState({cursorTime: timePosition, mouseOverCanvas: true})
-    // }
+    const { showCursorLine } = this.props
+    const { canvasTimeStart, width, visibleTimeStart, visibleTimeEnd, cursorTime } = this.state
+    const zoom = visibleTimeEnd - visibleTimeStart
+    const canvasTimeEnd = canvasTimeStart + zoom * 3
+    const canvasWidth = width * 3
+    const { pageX } = e
+    const ratio = (canvasTimeEnd - canvasTimeStart) / canvasWidth
+    const boundingRect = this.refs.scrollComponent.getBoundingClientRect()
+    let timePosition = visibleTimeStart + ratio * (pageX - boundingRect.left)
+
+    if (this.props.dragSnap) {
+      timePosition = Math.round(timePosition / this.props.dragSnap) * this.props.dragSnap
+    }
+
+    if (this.props.onCanvasMouseMove) {
+      this.props.onCanvasMouseMove(e)
+    }
+
+    if (cursorTime !== timePosition && showCursorLine) {
+      this.setState({cursorTime: timePosition, mouseOverCanvas: true})
+    }
   }
 
   todayLine (canvasTimeStart, zoom, canvasTimeEnd, canvasWidth, minUnit, height, headerHeight) {
