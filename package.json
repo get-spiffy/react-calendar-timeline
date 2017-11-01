@@ -1,6 +1,6 @@
 {
   "name": "@getspiffy/react-calendar-timeline",
-  "version": "0.15.77",
+  "version": "0.15.78",
   "description": "react calendar timeline",
   "main": "lib/index.js",
   "module": "src/index.js",
