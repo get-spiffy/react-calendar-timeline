@@ -437,7 +437,8 @@ export default class Item extends Component {
     const totalHours = (item.end_time - item.start_time) / 3600000
     const serviceTime = (item.work_end_at - item.start_time) / 3600000
     const coloredPercentage = serviceTime / totalHours * 100
-    console.log('colored Percentage', coloredPercentage)
+    console.log('colored Percentage', coloredPercentage
+    console.log('colored Percentage', item)
     return 'linear-gradient(to right, ' + color + ' ' + coloredPercentage + '%, white 0%)'
   }
   getColor (status) {
