@@ -416,9 +416,7 @@ export default class Item extends Component {
   };
 
   actualClick (e, clickType) {
-    console.log("Target", e.target.tagName)
     if (!(e.target.tagName == "svg") &&!(e.target.tagName == "path") && !(e.target.tagName == "BUTTON")) {
-      console.log("in if statement target")
       if (this.props.canSelect && this.props.onSelect) {
         this.props.onSelect(this.itemId, clickType, e)
       }
@@ -435,6 +433,7 @@ export default class Item extends Component {
   }
   getGradientPercentage (item) {
     const color = this.getColor(item.status)
+    console.log("status", item.status)
     const totalHours = (item.end_time - item.start_time) / 3600000
     const serviceTime = (item.work_end_at - item.start_time) / 3600000
     const coloredPercentage = serviceTime / totalHours * 100

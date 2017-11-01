@@ -783,7 +783,6 @@ export default class ReactCalendarTimeline extends Component {
   }
 
   handleCanvasMouseEnter = (e) => {
-    console.log("handle canvas mouse enter")
     const { showCursorLine } = this.props
     if (showCursorLine) {
       this.setState({mouseOverCanvas: true})
@@ -795,6 +794,7 @@ export default class ReactCalendarTimeline extends Component {
   }
 
   handleCanvasMouseLeave = (e) => {
+
     const { showCursorLine } = this.props
     if (showCursorLine) {
       this.setState({mouseOverCanvas: false})
@@ -806,27 +806,27 @@ export default class ReactCalendarTimeline extends Component {
   }
 
   handleCanvasMouseMove = (e) => {
-    const { showCursorLine } = this.props
-    const { canvasTimeStart, width, visibleTimeStart, visibleTimeEnd, cursorTime } = this.state
-    const zoom = visibleTimeEnd - visibleTimeStart
-    const canvasTimeEnd = canvasTimeStart + zoom * 3
-    const canvasWidth = width * 3
-    const { pageX } = e
-    const ratio = (canvasTimeEnd - canvasTimeStart) / canvasWidth
-    const boundingRect = this.refs.scrollComponent.getBoundingClientRect()
-    let timePosition = visibleTimeStart + ratio * (pageX - boundingRect.left)
-
-    if (this.props.dragSnap) {
-      timePosition = Math.round(timePosition / this.props.dragSnap) * this.props.dragSnap
-    }
-
-    if (this.props.onCanvasMouseMove) {
-      this.props.onCanvasMouseMove(e)
-    }
-
-    if (cursorTime !== timePosition && showCursorLine) {
-      this.setState({cursorTime: timePosition, mouseOverCanvas: true})
-    }
+    // const { showCursorLine } = this.props
+    // const { canvasTimeStart, width, visibleTimeStart, visibleTimeEnd, cursorTime } = this.state
+    // const zoom = visibleTimeEnd - visibleTimeStart
+    // const canvasTimeEnd = canvasTimeStart + zoom * 3
+    // const canvasWidth = width * 3
+    // const { pageX } = e
+    // const ratio = (canvasTimeEnd - canvasTimeStart) / canvasWidth
+    // const boundingRect = this.refs.scrollComponent.getBoundingClientRect()
+    // let timePosition = visibleTimeStart + ratio * (pageX - boundingRect.left)
+    //
+    // if (this.props.dragSnap) {
+    //   timePosition = Math.round(timePosition / this.props.dragSnap) * this.props.dragSnap
+    // }
+    //
+    // if (this.props.onCanvasMouseMove) {
+    //   this.props.onCanvasMouseMove(e)
+    // }
+    //
+    // if (cursorTime !== timePosition && showCursorLine) {
+    //   this.setState({cursorTime: timePosition, mouseOverCanvas: true})
+    // }
   }
 
   todayLine (canvasTimeStart, zoom, canvasTimeEnd, canvasWidth, minUnit, height, headerHeight) {
@@ -1215,6 +1215,7 @@ export default class ReactCalendarTimeline extends Component {
                  onDoubleClick={ this.handleDoubleClick }
                  onMouseEnter={ this.handleCanvasMouseEnter }
                  onMouseLeave={ this.handleCanvasMouseLeave }
+                 onMouseMove={ this.handleCanvasMouseMove }
                  onContextMenu={ this.handleCanvasContextMenu }
             >
               {this.items(canvasTimeStart, zoom, canvasTimeEnd, canvasWidth, minUnit, dimensionItems, groupHeights, groupTops)}
