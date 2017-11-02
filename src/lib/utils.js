@@ -316,9 +316,11 @@ export function getGroupedItems (items, groupOrders) {
   // Populate groups
   for (let i = 0; i < items.length; i++) {
     console.log(arr)
+    console.log("items", items)
     if (items[i].dimensions.order !== undefined) {
       console.log(arr[items[i].dimensions.order])
       console.log(items[i].dimensions.order)
+      console.log("items[i]", items[i])
       arr[items[i].dimensions.order].push(items[i])
     }
   }
