@@ -199,7 +199,9 @@ export function stack (items, groupOrders, lineHeight, headerHeight, force, stac
 
   var groupHeights = []
   var groupTops = []
-
+  console.log("items", items)
+  console.log("group", groupOrders)
+  console.log("stackGroup", stackGroup)
   var groupedItems = getGroupedItems(items, groupOrders)
 
   if (force) {
@@ -309,9 +311,13 @@ export function getGroupedItems (items, groupOrders) {
   for (let i = 0; i < Object.keys(groupOrders).length; i++) {
     arr[i] = []
   }
+  console.log("items in func", items)
+  console.log("group in func", groupOrders)
   // Populate groups
   for (let i = 0; i < items.length; i++) {
     if (items[i].dimensions.order !== undefined) {
+      console.log(arr[items[i].dimensions.order])
+      console.log(items[i].dimensions.order)
       arr[items[i].dimensions.order].push(items[i])
     }
   }
