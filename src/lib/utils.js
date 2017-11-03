@@ -308,7 +308,7 @@ export function getGroupedItems (items, groupOrders) {
   var arr = []
 
   // Initialize with empty arrays for each group
-  for (let i = 0; i < Object.keys(groupOrders).length; i++) {
+  for (let i = 0; i < Object.keys(groupOrders).length + 1; i++) {
     arr[i] = []
   }
   console.log("items in func", items)
