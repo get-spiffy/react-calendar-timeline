@@ -173,7 +173,8 @@ export function getGroupOrders (groups, keys) {
   for (let i = 0; i < groups.length; i++) {
     groupOrders[_get(groups[i], groupIdKey)] = i
   }
-
+  console.log('group', groupIdKey)
+  console.log('group orders', groupOrders)
   return groupOrders
 }
 
