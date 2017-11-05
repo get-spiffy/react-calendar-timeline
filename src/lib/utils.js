@@ -324,7 +324,7 @@ export function getGroupedItems (items, groupOrders) {
 }
 
 export function hasSomeParentTheClass (element, classname) {
-  if (element.className && element.className.split(' ').indexOf(classname) >= 0) return true
+  if (element.className && (element.className === classname || element.className.split(' ').indexOf(classname) >= 0)) return true
   return element.parentNode && hasSomeParentTheClass(element.parentNode, classname)
 }
 
