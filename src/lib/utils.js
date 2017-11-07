@@ -173,6 +173,7 @@ export function getGroupOrders (groups, keys) {
     groupOrders[_get(groups[i], groupIdKey)] = i
   }
   console.log("groups order", groupOrders)
+  console.log("groups at 44", groupOrders[44])
   return groupOrders
 }
 
@@ -302,6 +303,7 @@ export function keyBy (value, key) {
 }
 
 export function getGroupedItems (items, groupOrders) {
+  console.log("groups at 44 later", groupOrders[44])
   var arr = []
 
   // Initialize with empty arrays for each group
