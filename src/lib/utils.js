@@ -165,12 +165,14 @@ export function calculateDimensions ({
 }
 
 export function getGroupOrders (groups, keys) {
+  console.log("groups", groups)
   const { groupIdKey } = keys
 
   let groupOrders = {}
   for (let i = 0; i < groups.length; i++) {
     groupOrders[_get(groups[i], groupIdKey)] = i
   }
+  console.log("groups order", groupOrders)
   return groupOrders
 }
 
