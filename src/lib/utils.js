@@ -168,13 +168,9 @@ export function getGroupOrders (groups, keys) {
   const { groupIdKey } = keys
 
   let groupOrders = {}
-  console.log('groups', groups)
-  console.log('groups', groups.length)
   for (let i = 0; i < groups.length; i++) {
     groupOrders[_get(groups[i], groupIdKey)] = i
   }
-  console.log('group', groupIdKey)
-  console.log('group orders', groupOrders)
   return groupOrders
 }
 
@@ -201,9 +197,6 @@ export function stack (items, groupOrders, lineHeight, headerHeight, force, stac
 
   var groupHeights = []
   var groupTops = []
-  console.log("items", items)
-  console.log("group", groupOrders)
-  console.log("stackGroup", stackGroup)
   var groupedItems = getGroupedItems(items, groupOrders)
 
   if (force) {
@@ -310,12 +303,13 @@ export function getGroupedItems (items, groupOrders) {
   var arr = []
 
   // Initialize with empty arrays for each group
-  for (let i = 0; i < Object.keys(groupOrders).length + 1; i++) {
+  for (let i = 0; i < Object.keys(groupOrders).length; i++) {
     arr[i] = []
   }
   // Populate groups
   for (let i = 0; i < items.length; i++) {
     if (items[i].dimensions.order !== undefined) {
+      console.log("item order.", items[i].dimensions.order)
       arr[items[i].dimensions.order].push(items[i])
     }
   }
