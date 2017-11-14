@@ -302,16 +302,17 @@ export function keyBy (value, key) {
 }
 
 export function getGroupedItems (items, groupOrders) {
-console.log("groups at 51 later", groupOrders[51])
-  console.log("groups at 52 later", groupOrders[52])
   var arr = []
+  console.log("items", items)
+  console.log("groupOrders", groupOrders)
+  console.log("values", Object.values(groupOrders))
+  console.log("keys", Object.keys(groupOrders))
 
   // Initialize with empty arrays for each group
-  console.log("groups keys", Object.keys(groupOrders).length)
-  console.log("groups values", Object.values(groupOrders).length)
   for (let i = 0; i < Object.values(groupOrders).length; i++) {
     arr[i] = []
   }
+  console.log("arr", arr)
   // Populate groups
   for (let i = 0; i < items.length; i++) {
     if (items[i].dimensions.order !== undefined) {
