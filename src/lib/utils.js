@@ -309,7 +309,7 @@ console.log("groups at 51 later", groupOrders[51])
   // Initialize with empty arrays for each group
   console.log("groups keys", Object.keys(groupOrders).length)
   console.log("groups values", Object.values(groupOrders).length)
-  for (let i = 0; i < Object.values(groupOrders).length; i++) {
+  for (let i = 0; i < groupOrders.length; i++) {
     arr[i] = []
   }
   // Populate groups
@@ -317,11 +317,7 @@ console.log("groups at 51 later", groupOrders[51])
     if (items[i].dimensions.order !== undefined) {
       console.log("item order.", items[i].dimensions.order)
       if(!arr[items[i].dimensions.order]){
-        arr[items[i].dimensions.order - 1].push(items[i])
-      }
-      else{
         arr[items[i].dimensions.order].push(items[i])
-      }
     }
   }
 
