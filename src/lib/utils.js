@@ -302,11 +302,14 @@ export function keyBy (value, key) {
 }
 
 export function getGroupedItems (items, groupOrders) {
-  console.log("groups at 44 later", groupOrders[44])
+console.log("groups at 51 later", groupOrders[51])
+  console.log("groups at 52 later", groupOrders[52])
   var arr = []
 
   // Initialize with empty arrays for each group
-  for (let i = 0; i < Object.values(groupOrders).length + 1; i++) {
+  console.log("groups keys", Object.keys(groupOrders).length)
+  console.log("groups values", Object.values(groupOrders).length)
+  for (let i = 0; i < Object.keys(groupOrders).length + 1; i++) {
     arr[i] = []
   }
   // Populate groups
