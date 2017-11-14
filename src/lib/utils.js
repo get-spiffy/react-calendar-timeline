@@ -166,7 +166,8 @@ export function calculateDimensions ({
 
 export function getGroupOrders (groups, keys) {
   const { groupIdKey } = keys
-
+    console.log("groups", groups)
+    console.log("keys", keys)
   let groupOrders = {}
   for (let i = 0; i < groups.length; i++) {
     groupOrders[_get(groups[i], groupIdKey)] = i
@@ -317,12 +318,7 @@ export function getGroupedItems (items, groupOrders) {
   for (let i = 0; i < items.length; i++) {
     if (items[i].dimensions.order !== undefined) {
       console.log("item order.", items[i].dimensions.order)
-      if( arr[items[i].dimensions.order] === undefined){
-          arr[items[i].dimensions.order - 1].push(items[i])
-      }
-      else{
-        arr[items[i].dimensions.order].push(items[i])
-      }
+      arr[items[i].dimensions.order].push(items[i])
     }
   }
 
