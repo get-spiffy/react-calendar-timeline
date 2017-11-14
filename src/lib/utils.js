@@ -322,6 +322,7 @@ console.log("groups at 51 later", groupOrders[51])
   }
 
   return arr
+  }
 }
 
 export function hasSomeParentTheClass (element, classname) {
