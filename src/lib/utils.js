@@ -165,15 +165,11 @@ export function calculateDimensions ({
 }
 
 export function getGroupOrders (groups, keys) {
-  const { groupIdKey } = keys
-    console.log("groups", groups)
-    console.log("keys", keys)
+  const { groupIdKey } = keys // "id"
   let groupOrders = {}
   for (let i = 0; i < groups.length; i++) {
     groupOrders[_get(groups[i], groupIdKey)] = i
   }
-  console.log("groups order", groupOrders)
-  console.log("groups at 44", groupOrders[44])
   return groupOrders
 }
 
@@ -304,20 +300,14 @@ export function keyBy (value, key) {
 
 export function getGroupedItems (items, groupOrders) {
   var arr = []
-  console.log("items", items)
-  console.log("groupOrders", groupOrders)
-  console.log("values", Object.values(groupOrders))
-  console.log("keys", Object.keys(groupOrders))
 
   // Initialize with empty arrays for each group
-  for (let i = 0; i < Object.values(groupOrders).length; i++) {
+  for (let i = 0; i < Object.keys(groupOrders).length; i++) {
     arr[i] = []
   }
-  console.log("arr", arr)
   // Populate groups
   for (let i = 0; i < items.length; i++) {
     if (items[i].dimensions.order !== undefined) {
-      console.log("item order.", items[i].dimensions.order)
       arr[items[i].dimensions.order].push(items[i])
     }
   }
