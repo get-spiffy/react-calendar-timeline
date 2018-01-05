@@ -22,7 +22,7 @@ export default class TodayLine extends Component {
     var currentUTCOffset = currentTimeInTimezone.getTimezoneOffset()
     var utcTime = currentTimeInTimezone.getTime() + (currentUTCOffset * 60000)
     console.log("utc time", utcTime)
-    let currentTime = utcTime + (this.props.offset * 1000)
+    let currentTime = utcTime - (this.props.offset * 1000)
 
     if (currentTime > this.props.canvasTimeStart && currentTime < this.props.canvasTimeEnd) {
       const ratio = this.props.canvasWidth / (this.props.canvasTimeEnd - this.props.canvasTimeStart)
