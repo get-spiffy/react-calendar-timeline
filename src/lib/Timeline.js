@@ -838,6 +838,7 @@ export default class ReactCalendarTimeline extends Component {
                  lineCount={_length(this.props.groups)}
                  height={height}
                  headerHeight={headerHeight}
+                 offset = {this.props.offset}
       />
     )
   }

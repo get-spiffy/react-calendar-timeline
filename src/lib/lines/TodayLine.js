@@ -11,11 +11,12 @@ export default class TodayLine extends Component {
   }
 
   static defaultProps = {
+    currentTime: new Date().getTime()
   }
 
   // TODO: should currentTime come from a prop? probably...?
   render () {
-    let currentTime = new Date().getTime()
+    let currentTime = new Date().getTime() + -(this.props.offset)
 
     if (currentTime > this.props.canvasTimeStart && currentTime < this.props.canvasTimeEnd) {
       const ratio = this.props.canvasWidth / (this.props.canvasTimeEnd - this.props.canvasTimeStart)
