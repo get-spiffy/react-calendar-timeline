@@ -20,7 +20,7 @@ export default class TodayLine extends Component {
     console.log("offset", this.props.offset * 1000)
     var currentTimeInTimezone = new Date()
     var currentUTCOffset = currentTimeInTimezone.getTimezoneOffset()
-    var utcTime = currentTimeInTimezone - (currentUTCOffset * 60000)
+    var utcTime = currentTimeInTimezone.getTime() - (currentUTCOffset * 60000)
     console.log("utc time", utcTime)
     let currentTime = utcTime + (this.props.offset * 1000)
 
