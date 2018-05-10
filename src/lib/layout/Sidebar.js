@@ -43,7 +43,7 @@ export default class Sidebar extends Component {
     if (this.props.groupRenderer) {
       return React.createElement(this.props.groupRenderer, { group, isRightSidebar })
     } else {
-      return _get(group, isRightSidebar ? groupRightTitleKey : groupTitleKey)
+      return _get(group, isRightSidebar ? 'right_sidebar' : groupTitleKey)
     }
   }
 
