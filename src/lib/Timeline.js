@@ -20,6 +20,7 @@ export const defaultKeys = {
   groupIdKey: 'id',
   groupTitleKey: 'title',
   groupRightTitleKey: 'rightTitle',
+  groupRightSidebarKey: 'right_sidebar',
   itemIdKey: 'id',
   itemTitleKey: 'title',
   itemDivTitleKey: 'title',
@@ -455,7 +456,7 @@ export default class ReactCalendarTimeline extends Component {
 
   resize = (props = this.props) => {
     const { width: containerWidth, top: containerTop } = this.refs.container.getBoundingClientRect()
-    let width = containerWidth - props.sidebarWidth - props.rightSidebarWidth
+    let width = containerWidth - this.props.sidebarWidth - this.props.rightSidebarWidth
 
     const {
       dimensionItems, height, groupHeights, groupTops
