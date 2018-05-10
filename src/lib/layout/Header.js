@@ -135,7 +135,7 @@ export default class Header extends Component {
     let timeLabels = []
 const { canvasTimeStart, canvasTimeEnd, canvasWidth, lineHeight, visibleTimeStart, visibleTimeEnd, fixedHeader,
         minUnit, timeSteps, headerLabelGroupHeight, headerLabelHeight,
-        hasRightSidebar } = this.props
+        hasRightSidebar, headerPosition } = this.props
 
     const ratio = canvasWidth / (canvasTimeEnd - canvasTimeStart)
     const twoHeaders = minUnit !== 'year'
