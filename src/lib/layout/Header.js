@@ -5,6 +5,7 @@ import { iterateTimes, getNextUnit } from '../utils.js'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker-cssmodules.css'
 import Modal from 'react-modal'
+import CloseIcon from 'react-icons/lib/fa/close';
 
 export default class Header extends Component {
   static propTypes = {
