@@ -223,12 +223,23 @@ const { canvasTimeStart, canvasTimeEnd, canvasWidth, lineHeight, visibleTimeStar
         headerStyle.width = `${canvasWidth}px`
       }
     }
+    const calendarStyles = {
+      content: {
+        top                   : '30%',
+        left                  : '50%',
+        right                 : 'auto',
+        bottom                : 'auto',
+        marginRight           : '-50%',
+        transform             : 'translate(-50%, -50%)',
+      }
+    };
 
     return (
       <div ref='header' key='header' className='rct-header' onTouchStart={this.touchStart} onTouchEnd={this.touchEnd} onClick={this.toggleCalendar} style={headerStyle}>
           <Modal
             isOpen={this.state.isOpen}
             contentLabel="Modal"
+            style = {calendarStyles}
             >
             <DatePicker
                 inline
