@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { iterateTimes, getNextUnit } from '../utils.js'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker-cssmodules.css'
+import Modal from 'react-modal'
 
 export default class Header extends Component {
   static propTypes = {
@@ -225,16 +226,15 @@ const { canvasTimeStart, canvasTimeEnd, canvasWidth, lineHeight, visibleTimeStar
 
     return (
       <div ref='header' key='header' className='rct-header' onTouchStart={this.touchStart} onTouchEnd={this.touchEnd} onClick={this.toggleCalendar} style={headerStyle}>
-      {
-        this.state.isOpen && (
-        <DatePicker
-            selected={this.props.selectedDate}
-            onChange={this.handleChange}
-            shouldCloseOnSelect={false}
-            withPortal
-            inline />
-            )
-      }
+          <Modal
+            isOpen={this.state.isOpen}
+            contentLabel="Modal"
+            >
+            <DatePicker
+                selected={this.props.selectedDate}
+                onChange={this.handleChange}
+              />
+            </Modal>
         {timeLabels}
       </div>
     )
