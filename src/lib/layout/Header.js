@@ -41,6 +41,7 @@ export default class Header extends Component {
       touchActive: false,
       isOpen: false
     }
+    this.closeWindow = this.closeWindow.bind(this)
   }
 
   headerLabel (time, unit, width) {
@@ -131,6 +132,11 @@ export default class Header extends Component {
   toggleCalendar = (e) => {
     e && e.preventDefault()
     this.setState({isOpen: !this.state.isOpen})
+  }
+  closeWindow = () => {
+    this.setState({
+      isOpen: false
+    })
   }
   render () {
     let timeLabels = []
@@ -241,6 +247,7 @@ const { canvasTimeStart, canvasTimeEnd, canvasWidth, lineHeight, visibleTimeStar
             contentLabel="Modal"
             style = {calendarStyles}
             >
+            <CloseIcon className='closeButton' onClick={() => this.closeWindow()} />
             <DatePicker
                 inline
                 selected={this.props.selectedDate}
