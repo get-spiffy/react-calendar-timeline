@@ -231,6 +231,7 @@ const { canvasTimeStart, canvasTimeEnd, canvasWidth, lineHeight, visibleTimeStar
             contentLabel="Modal"
             >
             <DatePicker
+                inline
                 selected={this.props.selectedDate}
                 onChange={this.handleChange}
               />
