@@ -465,10 +465,11 @@ export default class Item extends Component {
     if (this.props.item.status === 'awaiting_payment') {
       border = 'red'
     }
-    else if (this.props.item.checked_in === 'started') {
-      border = 'green'
+    else if (this.props.item.checked_in == 'started') {
+      console.log("Setting border")
+      border = '#008000'
     }
-
+    console.log("ITEM!!!", border)
     const style = {
       left: `${dimensions.left}px`,
       top: `${dimensions.top}px`,
@@ -476,6 +477,7 @@ export default class Item extends Component {
       height: `${dimensions.height}px`,
       lineHeight: `${dimensions.height - 15}px`,
       background: background,
+      border: border,
       color: 'black'
     }
 
