@@ -465,7 +465,7 @@ export default class Item extends Component {
       border = 'red'
     }
     else if (this.props.item.checked_in == 'started') {
-      border = '3px solid #b4ed93'
+      border = '3px solid #90e062'
     }
     const style = {
       left: `${dimensions.left}px`,
