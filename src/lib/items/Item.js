@@ -461,15 +461,13 @@ export default class Item extends Component {
                        (dimensions.clippedRight ? ' clipped-right' : '')
     const background = this.getGradientPercentage(this.props.item)
     var border = 'none'
-    console.log("ITEM!!!", this.props.item)
     if (this.props.item.status === 'awaiting_payment') {
       border = 'red'
     }
     else if (this.props.item.checked_in == 'started') {
       console.log("Setting border")
-      border = '5px solid #008000'
+      border = '3px solid ##b4ed93'
     }
-    console.log("ITEM!!!", border)
     const style = {
       left: `${dimensions.left}px`,
       top: `${dimensions.top}px`,
