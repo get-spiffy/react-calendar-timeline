@@ -467,7 +467,7 @@ export default class Item extends Component {
     }
     else if (this.props.item.checked_in == 'started') {
       console.log("Setting border")
-      border = '#008000'
+      border = '5px solid #008000'
     }
     console.log("ITEM!!!", border)
     const style = {
