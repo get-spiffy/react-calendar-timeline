@@ -464,7 +464,7 @@ export default class Item extends Component {
     if (this.props.selected){
       border = '2px solid yellow'
     }
-    else if (this.props.item.status === 'awaiting_payment') {
+    else if (this.props.item.status === 'awaiting_payment' || this.props.item.status === 'awaiting_payment_age24' || this.props.item.status === 'keys_returned') {
       border = '2px solid red'
     }
     else if (this.props.item.checked_in == 'started') {
