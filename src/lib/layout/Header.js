@@ -84,7 +84,6 @@ export default class Header extends Component {
   }
 
   handleCalendarClickOutside = (e) => {
-    console.log('clicked outside')
     e.preventDefault()
     this.setState({
       isOpen: true

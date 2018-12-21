@@ -16,12 +16,9 @@ export default class TodayLine extends Component {
 
   // TODO: should currentTime come from a prop? probably...?
   render () {
-    console.log("currentTime", new Date().getTime())
-    console.log("offset", this.props.offset * 1000)
     var currentTimeInTimezone = new Date()
     var currentUTCOffset = currentTimeInTimezone.getTimezoneOffset()
     var utcTime = currentTimeInTimezone.getTime() + (currentUTCOffset * 60000)
-    console.log("utc time", utcTime)
     var currentTime = (utcTime + (parseInt(this.props.offset) * 1000))
 
     if (currentTime > this.props.canvasTimeStart && currentTime < this.props.canvasTimeEnd) {

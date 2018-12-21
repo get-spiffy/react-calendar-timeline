@@ -708,7 +708,6 @@ export default class ReactCalendarTimeline extends Component {
 
   scrollAreaClick = (e) => {
     // if not clicking on an item
-    console.log("scroll area click")
     if (!hasSomeParentTheClass(e.target, 'rct-item')) {
       if (this.state.selectedItem) {
         this.selectItem(null)
